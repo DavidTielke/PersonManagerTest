@@ -10,6 +10,8 @@ namespace ConsoleClient
     {
         private IFileSystem _fileSystem;
 
+        public DateTime LastTimeLoaded { get; private set; }
+
         public PersonRepository(IFileSystem fileSystem)
         {
             _fileSystem = fileSystem;
@@ -17,6 +19,8 @@ namespace ConsoleClient
 
         public IQueryable<Person> Load()
         {
+            LastTimeLoaded = DateTime.Now;
+
             var lines = _fileSystem.OpenAndRead("data.csv");
 
             var persons = CallParse(lines);
@@ -25,11 +29,17 @@ namespace ConsoleClient
         }
 
         // Extract and Override (EaO)
-        protected virtual IEnumerable<Person> CallParse(string[] lines)
+        protected internal virtual IEnumerable<Person> CallParse(string[] lines)
         {
             var parser = new CsvParser();
             var persons = parser.Parse(lines);
+            Add(1, 2);
             return persons;
+        }
+
+        private long Add(int z1, int z2)
+        {
+            return (long) z1 + z2;
         }
     }
 }

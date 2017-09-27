@@ -30,6 +30,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="Ninject, Version=3.2.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
       <HintPath>..\packages\Ninject.3.2.2.0\lib\net45-full\Ninject.dll</HintPath>
     </Reference>
@@ -49,8 +50,13 @@
     <Compile Include="CsvRepositoryTests.cs" />
     <Compile Include="FileSystemIntegrationTest.cs" />
     <Compile Include="PersonManagerTests.cs" />
-    <Compile Include="PersonRepositoryTests.cs" />
+    <Compile Include="UI\ConsoleClientTest\PersonRepositoryTest\Add.cs" />
+    <Compile Include="UI\ConsoleClientTest\PersonRepositoryTest\CallParse.cs" />
+    <Compile Include="Stubs\FileSystemStub.cs" />
+    <Compile Include="UI\ConsoleClientTest\PersonRepositoryTest\Load.cs" />
+    <Compile Include="UI\ConsoleClientTest\PersonRepositoryTest\PersonRepositoryTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UI\ConsoleClientTest\PersonRepositoryTest\PersonRepoTestClass.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
